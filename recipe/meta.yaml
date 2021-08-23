@@ -47,7 +47,7 @@ requirements:
 test:
   imports:
     - intensity_normalization
-    - intensity_normalization.exec
+    - intensity_normalization.cli
   commands:
     - fcm-normalize --help
     - kde-normalize --help
