@@ -49,7 +49,6 @@ test:
     - intensity_normalization
     - intensity_normalization.exec
   commands:
-    - pip check
     - fcm-normalize --help
     - gmm-normalize --help
     - nyul-normalize --help
