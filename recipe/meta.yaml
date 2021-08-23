@@ -11,7 +11,7 @@ source:
   sha256: d65d85141029bfbc0da1d5712c763b0aaf90876fe6c63fc7427922223a7f39dc
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - fcm-normalize = intensity_normalization.exec.fcm_normalize:main
