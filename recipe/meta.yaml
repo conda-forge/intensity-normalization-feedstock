@@ -14,17 +14,17 @@ build:
   number: 0
   noarch: python
   entry_points:
-    - fcm-normalize=intensity_normalization.cli:fcm_main
-    - kde-normalize=intensity_normalization.cli:kde_main
-    - lsq-normalize=intensity_normalization.cli:lsq_main
-    - nyul-normalize=intensity_normalization.cli:nyul_main
-    - ws-normalize=intensity_normalization.cli:ws_main
-    - zscore-normalize=intensity_normalization.cli:zs_main
-    - plot-histograms=intensity_normalization.cli:histogram_main
-    - tissue-membership=intensity_normalization.cli:tissue_main
-    - ravel-normalize=intensity_normalization.cli:ravel_main
-    - preprocess=intensity_normalization.cli:preprocessor_main
-    - coregister=intensity_normalization.cli:register_main
+    - fcm-normalize = intensity_normalization.cli.fcm:fcm_main
+    - kde-normalize = intensity_normalization.cli.kde:kde_main
+    - lsq-normalize = intensity_normalization.cli.lsq:lsq_main
+    - nyul-normalize = intensity_normalization.cli.nyul:nyul_main
+    - ws-normalize = intensity_normalization.cli.whitestripe:whitestripe_main
+    - zscore-normalize = intensity_normalization.cli.zscore:zscore_main
+    - plot-histograms = intensity_normalization.cli.histogram:histogram_main
+    - tissue-membership = intensity_normalization.cli.tissue_membership:tissue_membership_main
+    - ravel-normalize=intensity_normalization.cli.ravel:ravel_main
+    - preprocess=intensity_normalization.cli.preprocess:preprocessor_main
+    - coregister=intensity_normalization.cli.coregister:register_main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
