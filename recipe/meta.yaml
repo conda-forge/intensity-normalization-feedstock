@@ -1,18 +1,15 @@
 {% set name = "intensity-normalization" %}
-{% set version = "2.1.4" %}
-
+{% set version = "2.2.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e7b46039311bcbba40224d85eb07eefe1488bd8a6faa893a180e15e65c48b7f5
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intensity_normalization-{{ version }}.tar.gz
+  sha256: 62377885799b4fcef134a4aa73ace428d8ac395850cd0014648e7006223f5019
 
 build:
-  number: 0
-  noarch: python
   entry_points:
     - fcm-normalize = intensity_normalization.cli.fcm:fcm_main
     - kde-normalize = intensity_normalization.cli.kde:kde_main
@@ -26,29 +23,33 @@ build:
     - preprocess = intensity_normalization.cli.preprocess:preprocessor_main
     - coregister = intensity_normalization.cli.coregister:register_main
   script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.6,<3.10
     - pytest-runner
   run:
-    - matplotlib-base
-    - nibabel
-    - numpy
-    - python >=3.6
-    - scikit-fuzzy
-    - scikit-image
-    - scikit-learn
-    - scipy
-    - statsmodels
-    - pytest-runner
+    - nibabel >=3,<4
+    - numpy >=1.22,<2
+    - pillow >=9.0.0
+    - pydicom >=2.2.2,<3
+    - pymedio >=0.2.8,<1
+    - python >=3.6,<3.10
+    - scikit-fuzzy >=0.4.2,<1
+    - scikit-image >=0.17,<1
+    - scikit-learn >=0.24,<2
+    - scipy >=1.5,<2
+    - simpleitk >=2.1.0,<3
+    - statsmodels >=0.12,<1
 
 test:
   imports:
     - intensity_normalization
-    - intensity_normalization.cli
   commands:
+    - pip check
     - fcm-normalize --help
     - kde-normalize --help
     - lsq-normalize --help
@@ -57,6 +58,9 @@ test:
     - zscore-normalize --help
     - plot-histograms --help
     - tissue-membership --help
+    - ravel-normalize --help
+    - preprocess --help
+    - coregister --help
   requires:
     - pip
 
