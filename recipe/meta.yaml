@@ -55,7 +55,6 @@ test:
     - zscore-normalize --help
     - plot-histograms --help
     - tissue-membership --help
-    - preprocess --help
   requires:
     - pip
 
