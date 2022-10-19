@@ -19,7 +19,6 @@ build:
     - zscore-normalize = intensity_normalization.cli.zscore:zscore_main
     - plot-histograms = intensity_normalization.cli.histogram:histogram_main
     - tissue-membership = intensity_normalization.cli.tissue_membership:tissue_membership_main
-    - ravel-normalize = intensity_normalization.cli.ravel:ravel_main
     - preprocess = intensity_normalization.cli.preprocess:preprocessor_main
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -57,7 +56,6 @@ test:
     - zscore-normalize --help
     - plot-histograms --help
     - tissue-membership --help
-    - ravel-normalize --help
     - preprocess --help
   requires:
     - pip
