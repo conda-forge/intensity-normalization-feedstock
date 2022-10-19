@@ -21,7 +21,6 @@ build:
     - tissue-membership = intensity_normalization.cli.tissue_membership:tissue_membership_main
     - ravel-normalize = intensity_normalization.cli.ravel:ravel_main
     - preprocess = intensity_normalization.cli.preprocess:preprocessor_main
-    - coregister = intensity_normalization.cli.coregister:register_main
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   noarch: python
@@ -60,7 +59,6 @@ test:
     - tissue-membership --help
     - ravel-normalize --help
     - preprocess --help
-    - coregister --help
   requires:
     - pip
 
