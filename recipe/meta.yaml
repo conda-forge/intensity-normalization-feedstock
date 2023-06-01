@@ -1,5 +1,5 @@
 {% set name = "intensity-normalization" %}
-{% set version = "2.2.3" %}
+{% set version = "2.2.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intensity_normalization-{{ version }}.tar.gz
-  sha256: 62377885799b4fcef134a4aa73ace428d8ac395850cd0014648e7006223f5019
+  sha256: b3fb6b0c8468a8b163dcd3be8afdc4f80101e20ac10070e510bebe4c276c8268
 
 build:
   entry_points:
