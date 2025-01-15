@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intensity_normalization-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/intensity_normalization-{{ version }}.tar.gz
   sha256: b3fb6b0c8468a8b163dcd3be8afdc4f80101e20ac10070e510bebe4c276c8268
 
 build:
@@ -20,21 +20,22 @@ build:
     - plot-histograms = intensity_normalization.cli.histogram:histogram_main
     - tissue-membership = intensity_normalization.cli.tissue_membership:tissue_membership_main
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.6,<3.10
+    - python {{ python_min }}
     - pytest-runner
+    - setuptools
   run:
     - nibabel >=3,<4
     - numpy >=1.22,<2
     - pillow >=9.0.0
     - pydicom >=2.2.2,<3
     - pymedio >=0.2.8,<1
-    - python >=3.6,<3.10
+    - python >={{ python_min }},<3.10
     - scikit-fuzzy >=0.4.2,<1
     - scikit-image >=0.17,<1
     - scikit-learn >=0.24,<2
@@ -57,6 +58,7 @@ test:
     - tissue-membership --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jcreinhold/intensity-normalization
