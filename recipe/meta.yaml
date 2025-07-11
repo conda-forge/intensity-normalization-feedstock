@@ -1,5 +1,5 @@
 {% set name = "intensity-normalization" %}
-{% set version = "2.2.4" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/intensity_normalization-{{ version }}.tar.gz
-  sha256: b3fb6b0c8468a8b163dcd3be8afdc4f80101e20ac10070e510bebe4c276c8268
+  sha256: efe71a01c7943990eb48ba08276e929af006a8ccd5214e4df83b8896473c9459
 
 build:
   entry_points:
@@ -20,7 +20,7 @@ build:
     - plot-histograms = intensity_normalization.cli.histogram:histogram_main
     - tissue-membership = intensity_normalization.cli.tissue_membership:tissue_membership_main
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
