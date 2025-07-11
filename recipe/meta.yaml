@@ -1,5 +1,6 @@
 {% set name = "intensity-normalization" %}
 {% set version = "3.0.0" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -24,6 +25,7 @@ requirements:
     - pytest-runner
     - setuptools
   run:
+    - python >={{ python_min }}
     - nibabel >=5.0.0
     - numpy >=1.24.0
     - scikit-fuzzy >=0.4.2
